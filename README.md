@@ -1,4 +1,4 @@
-# KisiselSaglikIzleme
+# Kişisel Sağlık İzleme
 Projeye ait çalışmalar buradadır.
 # Proje Hakkında
 Kişisel Sağlık İzleme
