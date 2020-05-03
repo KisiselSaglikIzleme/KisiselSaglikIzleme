@@ -116,7 +116,6 @@ public class anaekran extends AppCompatActivity {
 
 DAHA PROGRAMIMIZ TASARIM AŞAMASINDA OLDUĞUNDAN DOLAYI BİRÇOK EKSİKLERİMİZ OLABİLİR.GEREKLİ DÜŞÜNDÜĞÜNÜZ KISIMLARI GİTHUB ÜZERİNDEN BAKARAK DÜZELTEBİLİRSİNİZ. 
 GİTHUB LİNKİMİZ:
-
 https://github.com/KisiselSaglikIzleme/Kisisel_Saglik_Izleme
 
 
