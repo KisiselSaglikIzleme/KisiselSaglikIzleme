@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SaglikhesaplaFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/txtboy"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/height"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/boy"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/height"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="100dp"
+        android:importantForAutofill="no"
+        android:inputType=""></EditText>
+    <TextView
+        android:id="@+id/widget34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:text="@string/weight"
+        android:layout_marginTop="140dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+
+        ></TextView>
+    <EditText
+        android:id="@+id/kilo"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/weight"
+        android:importantForAutofill="no"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="140dp"
+        android:inputType=""
+        ></EditText>
+    <TextView
+        android:id="@+id/widget36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/years"
+        android:layout_marginTop="220dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        ></TextView>
+    <EditText
+        android:id="@+id/yas"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/years"
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="100dp"
+        android:inputType=""
+        android:importantForAutofill="no"
+        ></EditText>
+    <Button
+        android:id="@+id/sonuc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="@string/calculate_healtly"
+        android:layout_marginTop="265dp"
+        ></Button>
+
+    <TextView
+        android:id="@+id/textVier1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="310dp"
+        android:textColor="@android:color/black"
+        android:inputType=""
+        android:hint=""
+        android:autofillHints=""
+        ></TextView>
+        <TextView
+            android:id="@+id/textVier2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="370dp"
+            android:textColor="@android:color/black"
+            android:inputType=""
+            android:importantForAutofill=""></TextView>
+
+
+</FrameLayout>
