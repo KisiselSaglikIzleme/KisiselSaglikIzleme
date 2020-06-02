@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HatirlatmalarFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/butonbildirdis"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:hint="@string/tith_noti"
+        android:layout_marginTop="50dp"
+        />
+    <Button
+        android:id="@+id/butonbildiruyku"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:hint="@string/sleep_notification"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="110dp"
+        />
+    <Button
+        android:id="@+id/butonbildirsu"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:hint="@string/notification_water"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="220dp"
+        />
+
+    <TextView
+        android:id="@+id/sleeps"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/metin" />
+
+    <ImageView
+        android:id="@+id/imgsleep"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="290dp"
+        android:src="@drawable/uyku"
+        android:contentDescription="@string/save" />
+    <TextView
+        android:id="@+id/tith"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dis"
+        android:layout_marginTop="250dp"
+
+        />
+    <ImageView
+        android:id="@+id/imgtith"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/tith"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="250dp"
+         />
+  <TextView
+      android:id="@+id/water"
+      android:layout_width="290dp"
+      android:layout_height="wrap_content"
+      android:text="@string/text_wtr"
+      android:layout_marginTop="350dp"
+      />
+    <ImageView
+        android:id="@+id/imgwater"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/wat"
+        android:layout_marginTop="350dp"
+        android:layout_marginStart="290dp"
+        />
+
+
+
+</FrameLayout>
