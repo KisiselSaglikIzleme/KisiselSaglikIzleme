@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorAccent"
+    android:padding="20dp"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon8_healt"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtWelcomeAppName"
+        android:layout_marginTop="20dp"
+
+
+        android:contentDescription="@string/todo"></ImageView>
+
+    <TextView
+        android:id="@+id/txtWelcomeAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/healtyfriendly"
+        android:textSize="35sp"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+
+        ></TextView>
+
+    <Button
+        android:id="@+id/btnWelcomeRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:text="@string/new_create_account"
+       android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        />
+    <Button
+        android:id="@+id/btnWelcomeLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/i_have_account"
+        android:background="@android:color/holo_red_dark"
+        android:layout_above="@id/btnWelcomeRegister"
+        android:layout_marginBottom="20dp"
+
+        ></Button>
+
+
+</RelativeLayout>
