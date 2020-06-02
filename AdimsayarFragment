@@ -1,0 +1,83 @@
+package com.example.saglik;
+
+import android.app.Activity;
+import android.app.DirectAction;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.provider.ContactsContract;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+import pub.devrel.easypermissions.EasyPermissions;
+
+
+public class Aramagida extends Fragment {
+    FirebaseDatabase database;
+    private ArrayList<Gıda> gıdaList;
+    ListView listviewgıda;
+
+
+
+    public Aramagida() {
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View GıdaArama =inflater.inflate(R.layout.fragment_aramagida, container, false);
+        gıdaList =new ArrayList<Gıda>();
+        listviewgıda = (ListView) GıdaArama.findViewById(R.id.listviewgida);
+        database =FirebaseDatabase.getInstance();
+        final DatabaseReference dbRef = database.getReference("aramagida");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds:dataSnapshot.getChildren()){
+                    String name = ds.child("Gida_Adi").getValue().toString();
+                    String kalori = ds.child("Kalorisi").getValue().toString();
+                    gıdaList.add(new Gıda(kalori,name));
+                }
+                CustomAdaptergida customAdaptergida = new CustomAdaptergida(getActivity(),gıdaList);
+                listviewgıda.setAdapter(customAdaptergida);
+                dbRef.removeEventListener(this);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+        return GıdaArama;
+    }
+
+
+
+
+
+}
