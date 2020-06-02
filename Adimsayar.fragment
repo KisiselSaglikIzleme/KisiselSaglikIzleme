@@ -1,0 +1,91 @@
+package com.example.saglik;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class AdimsayarFragment extends Fragment implements SensorEventListener {
+    private SensorManager sensorManager;
+    private TextView tv_steps;
+    private boolean running =false;
+    FirebaseDatabase database;
+
+
+    public AdimsayarFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View adimview=  inflater.inflate(R.layout.fragment_adimsayar, container, false);
+        tv_steps = (TextView) adimview.findViewById(R.id.tv_steps);
+        sensorManager = (SensorManager) Objects.requireNonNull(getContext()).getSystemService(Context.SENSOR_SERVICE);
+
+
+
+
+
+        return adimview;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        running = true;
+        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        if (countSensor != null){
+            sensorManager.registerListener(this,countSensor, SensorManager.SENSOR_DELAY_UI);
+        }else {
+            Toast.makeText(getView().getContext(), "default", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        running = false;
+
+
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        if (running){
+            tv_steps.setText(String.valueOf(event.values[0]));
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+}
+
