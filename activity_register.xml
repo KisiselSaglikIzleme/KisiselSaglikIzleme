@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <include layout="@layout/actionbar_app"
+        android:id="@+id/actionbarregister"
+        ></include>
+
+    <TextView
+        android:id="@+id/txtinfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_create_account"
+        android:layout_below="@id/actionbarregister"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="20dp"
+
+
+        ></TextView>
+    <TextView
+        android:id="@+id/txtinfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/username"
+        android:layout_below="@id/txtinfo1"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+
+        ></TextView>
+
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtinfo2"
+        android:hint="@string/username"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:inputType="text"
+        android:importantForAutofill="no"></EditText>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtUsername"
+        android:hint="@string/e_mail"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="no"></EditText>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtEmail"
+        android:hint="@string/password"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"></EditText>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_create_account"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="35dp"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/black"
+
+        ></Button>
+
+
+
+
+</RelativeLayout>
