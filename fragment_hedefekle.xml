@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Hedefekle">
+
+  <TextView
+    android:id="@+id/hedefkalori"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:text="@string/kalori_al_m_limitinizi_belirtiniz"/>
+  <EditText
+        android:id="@+id/gunlukkalori"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:autofillHints=""
+        android:hint="@string/calori"
+        android:inputType="text" />
+    <TextView
+        android:id="@+id/hedefsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="@string/hedef_su_me_litre"/>
+    <EditText
+        android:id="@+id/textsu"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:autofillHints=""
+        android:hint="@string/water"
+        android:inputType="text" />
+    <TextView
+        android:id="@+id/hedefadim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:text="@string/hedef_ad_m_say_s"/>
+    <EditText
+        android:id="@+id/textadim"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="250dp"
+        android:autofillHints=""
+        android:hint="@string/step_counter"
+        android:inputType="text" />
+
+
+    <Button
+        android:id="@+id/hedefkaydet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/save"
+        android:layout_marginTop="310dp"
+        />
+
+
+
+</RelativeLayout>
