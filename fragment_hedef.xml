@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HedefFragment">
+
+
+    <EditText
+        android:id="@+id/gıdaadi"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="50dp"
+
+        android:hint="@string/name_food"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/kalori"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="150dp"
+        android:hint="@string/calori"
+        android:autofillHints=""
+        android:inputType="text" />
+    <Button
+        android:id="@+id/gıdakaydet"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:hint="@string/save"
+        android:layout_marginTop="120dp"
+
+        />
+
+</RelativeLayout>
