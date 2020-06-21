@@ -1,9 +1,12 @@
-package com.example.saglik;
+﻿package com.example.saglik;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Vibrator;
 import android.view.View;
 
 
@@ -18,7 +21,11 @@ import androidx.annotation.NonNull;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,6 +35,21 @@ public class GunlukFragment extends Fragment {
    private  ArrayList<HedefModel> hedefList;
    private ListView listView;
    private CustomAdapter adapter;
+    Button sonuc;
+    EditText boy,kilo,yas,hedef;
+    TextView text,text2;
+    Float bki, boytext,kilotext;
+    Integer yuvarlama;
+
+    Button attirBtn,azaltBtn;
+    TextView sonucTxt;
+
+
+    public Integer sayi ;
+    public SharedPreferences spref;
+    public SharedPreferences.Editor sprefeditor;
+    public int hedefsu;
+    public boolean mDevam = false;
 
 
 
@@ -42,6 +64,15 @@ public class GunlukFragment extends Fragment {
         database =FirebaseDatabase.getInstance();
 
         final DatabaseReference dbRef=database.getReference("hedef");
+        hedef =(EditText)gunluk.findViewById(R.id.hedefff);
+        attirBtn = (Button)gunluk.findViewById(R.id.ARTIR);
+        azaltBtn = (Button)gunluk.findViewById(R.id.AZALT);
+        sonucTxt = (TextView)gunluk.findViewById(R.id.snc);
+        final Vibrator[] titresim ={(Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE)} ;
+        spref = getActivity().getSharedPreferences("saklama_XML", Context.MODE_PRIVATE);
+        sayi=spref.getInt("sayi",0);
+        sonucTxt.setText(sayi.toString());
+
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,12 +96,61 @@ public class GunlukFragment extends Fragment {
             }
         });
 
+        attirBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                hedefsu = Integer.parseInt(hedef.getText().toString());
+
+                if (sayi == hedefsu && mDevam == false){
+
+                    sonucTxt.setText(sayi.toString());
+                    Toast.makeText(getActivity().getApplicationContext(),"Hedefe ulaşıldı",Toast.LENGTH_LONG).show();
+                    titresim[0].vibrate(700);
+
+                }
+                else
+                {
+                    titresim[0].vibrate(100);
+
+
+                    sprefeditor = spref.edit();
+
+                    sprefeditor.putInt("sayi",sayi++);
+
+
+                    sonucTxt.setText("");
+                    sonucTxt.setText(sayi.toString());
+                    sprefeditor.commit();
+                    mDevam = false;
+                }
 
 
 
 
 
 
-         return gunluk;
+
+            }
+        });
+        azaltBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sayi--;
+                sonucTxt.setText(String.valueOf(sayi));
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+        return gunluk;
     }
 }
