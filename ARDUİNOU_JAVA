@@ -1,0 +1,55 @@
+
+#define USE_ARDUINO_INTERRUPTS true    // Pulse kütüphanesinin daha doğru ölçüm yapabilmesi için bu ayarı etkinleştiriyoruz
+#include <PulseSensorPlayground.h>//Yazının başında bilgisayarımıza kurmuş olduğumuz Pulse Playground kütüphanesini ekliyoruz.
+#include<SoftwareSerial.h>
+SoftwareSerial bt_iletisim(7,6);
+
+int nabiz; //İçinde dakikadaki nabzı tutacağımız değişkeni oluşturuyoruz.
+int lcd_ledi = 6; //5110 ekranımızın arka plan aydınlatmasının bağlı olduğu pini belirliyoruz.
+extern uint8_t SmallFont[];
+extern uint8_t BigNumbers[]; //5110 ekranımızda yazacağımız yazı için gerekli fontları ekliyoruz.
+const int PulseWire = 0; // Pulse sensörümüzü bağlamış olduğumuz Analog pinini belirliyoruz.
+const int LED13 = 13; // Arduino üzerindeki ledin nabzımızla birlikte yanıp sönmesi için bu değişkeni 13 numaralı pin olarak ayarlıyoruz.
+int Threshold = 580; // Yazının başında belirlemiş olduğumuz eşik değerini bu değişkene atıyoruz.
+PulseSensorPlayground pulseSensor; //Sensörümüzü kodumuzda kullanabilmek için onu obje olarak oluşturuyoruz.
+
+void setup() {
+  Serial.begin(9600);  //Bilgisayrımızla olan seri iletişimi başlatıyoruz.
+  pulseSensor.analogInput(PulseWire); //Pulse sensörünün bağlıu olduğu pini belirliyoruz.
+  bt_iletisim.begin(9600);
+  pulseSensor.blinkOnPulse(LED13);       //arduino üzerindeki ledin nabzımızla yanıp sönmesini istediğimizi söylüyoruz.
+  pulseSensor.setThreshold(Threshold); //Değişkene atamış olduğumuz eşik değerini uyguluyoruz.
+  // put your setup code here, to run once:
+  digitalWrite(lcd_ledi, HIGH); //5110 ekranın arka plan aydınlatmasına güç veriyoruz.
+
+  if (pulseSensor.begin()) {
+    Serial.println("Pulse sensörü objesini yarattık."); 
+  } //Pulse sensörü başarıyla başlatılırsa bilgisayara mesaj gönderioyoruz.
+
+}
+
+void loop() {
+
+  if(bt_iletisim.available()){
+    char data = bt_iletisim.read();
+    Serial.println(data);
+
+
+
+    
+  }
+  // put your main code here, to run repeatedly:
+  if (pulseSensor.sawStartOfBeat()) { //Eğer nabız algılarsak
+    nabiz = pulseSensor.getBeatsPerMinute(); //Dakikadaki nabzı nabiz değişkenine kaydediyoruz.
+    
+      Serial.println("Nabız attı. ");
+    Serial.print("BPM: ");                        
+    Serial.println(nabiz); //Dakikdaki nabız değerini aynıo zamanda bilgisayarımıza da gönderiyoruz.
+    bt_iletisim.println(nabiz);
+  }
+  
+
+
+  delay(20); //20 milisaniye bekletiyoruyuz.
+
+}
